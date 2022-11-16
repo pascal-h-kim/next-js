@@ -7,10 +7,7 @@ on:
         description: "배포 버전"
         required: true
         type: string
-      DESCRIPTION:
-        description: "배포 상세"
-        required: true
-        type: string
+
 jobs:
   build:
     runs-on: ubuntu-latest
