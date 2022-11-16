@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nextjs:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+     - "3010:3010" # React app will be served on localhost:3010
+    environment:
+     PORT: 3010
