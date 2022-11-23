@@ -19,8 +19,6 @@ jobs:
     steps:
     - name: Git Clone
       uses: actions/checkout@v3
-#      with:
-#        ref: ${{ inputs.VERSION }}
     - name: Use Node.js 16.13.2
       uses: actions/setup-node@v3
       with:
@@ -59,9 +57,9 @@ jobs:
     - name: Build Docker
       run: |
         export DOCKER_BUILDKIT=1
-        docker build -t ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:${{ inputs.VERSION }} \
+        docker build -t ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:${{ env.RELEASE_VERSION }} \
         -t ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:latest .
-        docker push ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:${{ inputs.VERSION }}
+        docker push ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:${{ env.RELEASE_VERSION }}
         docker push ops-harbor-apne1.knowre-dev.com/sentry-demo/app/nextjs:latest
 
     - name: Create kube config
