@@ -4,7 +4,8 @@ const { execSync } = require("child_process");
 
 module.exports = withSourceMaps({
   env: {
-    dsn: "https://2a538c386aad46f2bd1b8fea964008e3@ops-sentry.knowre.com/37",
+    dsn: "https://a53607470ed149e9a40453e64695f912@ops-sentry.knowre.com/3", // self hosted
+    // dsn: "https://41401bf03df24e8f91ad96aac7a8a55f@o4504208246833152.ingest.sentry.io/4504234926407680", // SAAS
     release: execSync('git rev-parse HEAD').toString()
   },
   webpack(config, options) {
